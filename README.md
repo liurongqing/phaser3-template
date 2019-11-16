@@ -53,6 +53,28 @@ tsconfig.json // 为了让 VSCode 识别 Typescript 语法
    yarn phaser
    ```
 
+## 打包生产测试
+
+使用 [http-server](https://github.com/http-party/http-server#readme) 测试
+
+1. 全局安装 `http-server`
+
+   ```bash
+   yarn global add -D http-server
+   ```
+
+2. 启动服务
+
+   ```bash
+   http-server ./dist
+   ```
+
+3. 访问
+
+   ```bash
+   http://127.0.0.1:8080
+   ```
+
 ## 问题反馈
 
 若您有任何问题或建议，请不吝与我联系。
