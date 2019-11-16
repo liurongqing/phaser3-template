@@ -27,7 +27,7 @@ yarn phaser # 重新编译 phaser
 
 ```javascript
 build // 构建工具
-public // 不参与编译的文件
+public // 不参与编译的文件，可以放些静态文件
 src // 源码
   const // 常量
   scenes // 场景
