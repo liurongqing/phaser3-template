@@ -26,7 +26,7 @@ yarn phaser # 重新编译 phaser
 ## 项目结构
 
 ```javascript
-build // 构建工具
+build // 构建工具 webpack 配置文件
 public // 不参与编译的文件，可以放些静态文件
 src // 源码
   const // 常量
