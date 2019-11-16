@@ -1,6 +1,5 @@
 **本项目正在准备阶段暂不可用**
 
-
 # 网页 H5 游戏开发
 
 用心开发精品游戏
@@ -29,7 +28,7 @@ yarn phaser # 重新编译 phaser
 ## 项目结构
 
 ```javascript
-build // 构建工具 webpack 配置文件
+build // 构建工具， webpack 配置文件
 public // 不参与编译的文件，可以放些静态文件
 src // 源码
   const // 常量
