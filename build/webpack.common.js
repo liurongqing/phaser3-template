@@ -4,7 +4,7 @@ const { resolve } = path
 const config = {
   entry: './src/index.ts',
   output: {
-    path: resolve('./dist'),
+    path: resolve('./docs'),
     filename: 'game.js'
   },
   module: {

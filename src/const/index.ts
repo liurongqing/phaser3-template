@@ -1,4 +1,4 @@
-export const BASE_URL = '/'
+export const BASE_URL = './'
 export const PATH_URL = 'images'
 
 export const OPTION_GAME = {
