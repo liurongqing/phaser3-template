@@ -12,8 +12,8 @@
 
 ## DEMO 列表
 
-1. 基于原生 JavaScript 的类似青蛙过河游戏 [源码](https://github.com/liurongqing/javascript-frogger-demo) [演示](https://liurongqing.github.io/javascript-frogger-demo)
-1. 基于 Phaser3 的类似青蛙过河游戏 [源码](https://github.com/liurongqing/phaser3-frogger-demo) [演示](https://liurongqing.github.io/phaser3-frogger-demo)
+1. [基于原生 JavaScript 的类似青蛙过河游戏](https://github.com/liurongqing/javascript-frogger-demo)
+1. [基于 Phaser3 的类似青蛙过河游戏](https://github.com/liurongqing/phaser3-frogger-demo)
 
 ## 项目简介
 
