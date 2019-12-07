@@ -7,7 +7,7 @@ export default class MainScene extends Phaser.Scene {
   preload() {
     this.load.setBaseURL(BASE_URL)
     this.load.setPath(PATH_URL)
-    this.load.image('bg', 'bg.jpg')
+    this.load.image('bg', 'images/bg.jpg')
   }
 
   create() {

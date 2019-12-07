@@ -10,6 +10,12 @@
 
 ---
 
+## DEMO 列表
+
+1. [基于原生 JavaScript 的类似青蛙过河游戏](https://github.com/liurongqing/javascript-frogger-demo)
+1. [基于 Phaser3 的类似青蛙过河游戏](https://github.com/liurongqing/phaser3-frogger-demo)
+1. [基于 Phaser3 的虚拟宠物游戏](https://liurongqing.github.io/phaser3-virtual-pet)
+
 ## 项目简介
 
 本项目使用 `Typescript` + `Webpack` 构建，支持自定义 Phaser 库至 `public/phaser.js` 中，能够快速编译用户代码。
