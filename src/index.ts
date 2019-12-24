@@ -8,10 +8,10 @@ for (let i in scenes) {
 const config: any = {
   type: Phaser.AUTO,
   backgroundColor: 0x000000,
-  parent: null,
   scale: {
     mode: Phaser.Scale.FIT,
     autoCenter: Phaser.Scale.CENTER_BOTH,
+    parent: 'app',
     width: 750,
     height: 1334
   },
