@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>八角框架</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 100vw;
+        height: 100vh;
+      }
+      .title {
+        display: flex;
+        justify-content: center;
+        margin: 20px;
+      }
+
+      .action {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        margin-bottom: 100px;
+        text-align: center;
+      }
+
+      .item {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        margin: 20px;
+      }
+      .item label {
+        display: inline-block;
+        width: 22px;
+      }
+      .textarea {
+        width: 100%;
+        height: 40px;
+        margin-bottom: 10px;
+        margin-top: 4px;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <div class="title">
+        <span>标题：</span><input class="title-input" type="text" />
+      </div>
+      <div class="action">
+        <div class="item">
+          <div>
+            <div>
+              <span>使命 </span>
+              <input type="range" min="0" max="10" step="1" />
+              <label></label>
+            </div>
+            <textarea class="textarea"></textarea>
+          </div>
+          <div>
+            <div>
+              <span>成就 </span>
+              <input type="range" min="0" max="10" step="1" />
+              <label></label>
+            </div>
+            <textarea class="textarea"></textarea>
+          </div>
+          <div>
+            <div>
+              <span>拥有 </span>
+              <input type="range" min="0" max="10" step="1" />
+              <label></label>
+            </div>
+            <textarea class="textarea"></textarea>
+          </div>
+          <div>
+            <div>
+              <span>稀缺 </span>
+              <input type="range" min="0" max="10" step="1" />
+              <label></label>
+            </div>
+            <textarea class="textarea"></textarea>
+          </div>
+        </div>
+        <div class="item">
+          <div>
+            <div>
+              <span>亏损 </span>
+              <input type="range" min="0" max="10" step="1" />
+              <label></label>
+            </div>
+            <textarea class="textarea"></textarea>
+          </div>
+          <div>
+            <div>
+              <span>未知 </span>
+              <input type="range" min="0" max="10" step="1" />
+              <label></label>
+            </div>
+            <textarea class="textarea"></textarea>
+          </div>
+          <div>
+            <div>
+              <span>社交 </span>
+              <input type="range" min="0" max="10" step="1" />
+              <label></label>
+            </div>
+            <textarea class="textarea"></textarea>
+          </div>
+          <div>
+            <div>
+              <span>授权 </span>
+              <input type="range" min="0" max="10" step="1" />
+              <label></label>
+            </div>
+            <textarea class="textarea"></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="app" style="width: 800px; height: 800px; "></div>
+    <script src="echarts.min.js"></script>
+    <script>
+      window.onload = function() {
+        const localData = JSON.parse(localStorage.getItem('data'))
+        var values = localData || [
+          {
+            value: 5,
+            text: ''
+          },
+          {
+            value: 5,
+            text: ''
+          },
+          {
+            value: 5,
+            text: ''
+          },
+          {
+            value: 5,
+            text: ''
+          },
+          {
+            value: 5,
+            text: ''
+          },
+          {
+            value: 5,
+            text: ''
+          },
+          {
+            value: 5,
+            text: ''
+          },
+          {
+            value: 5,
+            text: ''
+          }
+        ]
+        var factor = Array.from({ length: 11 }, function(v, index) {
+          return Math.pow(index, 2)
+        })
+        var inputs = document.querySelectorAll('.action input')
+        var textareas = document.querySelectorAll('textarea')
+        var titleInput = document.querySelector('.title-input')
+
+        titleInput.value = localStorage.getItem('title') || 'liurongqing'
+
+        inputs.forEach(function(v, index) {
+          v.value = values[index].value
+          v.parentNode.querySelector('label').innerText = values[index].value
+          v.onchange = function(e) {
+            v.parentNode.querySelector('label').innerText = e.target.value
+            values[index].value = +e.target.value
+            resetOption()
+          }
+        })
+        textareas.forEach(function(v, index) {
+          v.innerText = values[index].text
+          v.onchange = function(e) {
+            values[index].text = e.target.value
+            resetOption()
+          }
+        })
+
+        titleInput.onchange = function() {
+          resetOption()
+        }
+
+        var chart = echarts.init(document.getElementById('app'))
+
+        resetOption()
+        function resetOption() {
+          // console.log(values)
+          localStorage.setItem('data', JSON.stringify(values))
+          localStorage.setItem('title', titleInput.value)
+          var option = {
+            title: {
+              text:
+                titleInput.value +
+                ' - 八角分数：' +
+                values
+                  .map(function(v) {
+                    return v.value
+                  })
+                  .reduce(function(prev, current) {
+                    return prev + factor[current]
+                  }, 0)
+            },
+            toolbox: {
+              feature: {
+                saveAsImage: {}
+              }
+            },
+            radar: [
+              {
+                name: {
+                  color: '#222222',
+                  // fontWeight: 'bold',
+                },
+                axisLine: {
+                  show: false
+                },
+                z: 9,
+                indicator: [
+                  { name: '使命', max: 100 },
+                  { name: '成就', max: 100 },
+                  { name: '拥有', max: 100 },
+                  { name: '稀缺', max: 100 },
+                  { name: '亏损', max: 100 },
+                  { name: '未知', max: 100 },
+                  { name: '社交', max: 100 },
+                  { name: '授权', max: 100 }
+                ],
+                splitNumber: 0,
+                // nameGap: -30,
+                radius: 100
+              },
+              {
+                name: {
+                  color: '#333333'
+                },
+                indicator: values.map(function(v) {
+                  return { name: v.text }
+                }),
+                splitNumber: 1,
+                radius: 300
+              }
+            ],
+            series: [
+              {
+                type: 'radar',
+                symbol: 'none', // 拐点的样式
+                itemStyle: {
+                  normal: {
+                    lineStyle: { color: '#ffffff' },
+                    areaStyle: { color: '#ffffff' }
+                  }
+                },
+                data: [
+                  {
+                    value: [100, 100, 100, 100, 100, 100, 100, 100]
+                  }
+                ]
+              },
+              {
+                type: 'radar',
+                label: {
+                  show: true,
+                  fontSize: 10,
+                  formatter: function(params) {
+                    return factor[((params.value - 100) / 200) * 10]
+                    return 1
+                  }
+                },
+                itemStyle: {
+                  normal: {
+                    lineStyle: { color: '#cccccc' },
+                    areaStyle: { color: '#3E69B8', opacity: 0.8 }
+                  }
+                },
+                data: [
+                  {
+                    value: values.map(function(v) {
+                      return 100 + (v.value / 10) * 200
+                    })
+                  }
+                ]
+              }
+            ]
+          }
+          chart.setOption(option)
+        }
+      }
+    </script>
+  </body>
+</html>
