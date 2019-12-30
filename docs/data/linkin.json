@@ -1,22 +1,22 @@
 {
-  "title": "facebook",
+  "title": "Linkedin",
   "values": [
     {
       "index": 1,
       "key": "使命",
-      "value": 1,
+      "value": 4,
       "text": "缺乏史诗意义与使命感\n为了某种意义使用 Facebook"
     },
     {
       "index": 2,
       "key": "成就",
-      "value": 3,
+      "value": 9,
       "text": "完善帐号资料\n更多好友\n点赞和评论\n光环效应\n"
     },
     {
       "index": 3,
       "key": "拥有",
-      "value": 10,
+      "value": 9,
       "text": "管家效应\n照片 / 个人资料\n好友\n记忆\n保护任务\n招聘负担\n监视情结"
     },
     {
@@ -28,25 +28,25 @@
     {
       "index": 5,
       "key": "亏损",
-      "value": 10,
+      "value": 6,
       "text": "红字提醒\n沉默成本悲剧"
     },
     {
       "index": 6,
       "key": "不确定性",
-      "value": 6,
+      "value": 2,
       "text": "神秘宝箱\n发光的选择\n不断更新的内容\n彩蛋"
     },
     {
       "index": 7,
       "key": "社交",
-      "value": 10,
+      "value": 7,
       "text": "加好友\n合格锚\n社交刺激\n社交财富\n团队任务\n吹墟旗帜\n羡慕云"
     },
     {
       "index": 8,
       "key": "授权",
-      "value": 7,
+      "value": 2,
       "text": "分享创造性的内容\n大量的Facebook游戏\n好友点赞的即时反馈\n创建炫酷主页资料"
     }
   ]
