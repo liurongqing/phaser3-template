@@ -10,8 +10,8 @@
         display: flex;
         justify-content: space-around;
         align-items: center;
-        width: 100vw;
-        height: 100vh;
+        min-width: 100vw;
+        min-height: 100vh;
       }
       .title {
         display: flex;
@@ -43,12 +43,24 @@
         margin-bottom: 10px;
         margin-top: 4px;
       }
+
+      @media only screen and (max-width: 800px) {
+        body {
+          flex-direction: column;
+        }
+      }
     </style>
   </head>
   <body>
     <div>
       <div class="title">
         <span>标题：</span><input class="title-input" type="text" />
+        <input
+          style="margin-left: 20px"
+          class="url"
+          placeholder="请输入配置文件"
+        />
+        <button style="margin-left: 10px;" class="import">导入</button>
       </div>
       <div class="action">
         <div class="item">
@@ -166,25 +178,51 @@
         var inputs = document.querySelectorAll('.action input')
         var textareas = document.querySelectorAll('textarea')
         var titleInput = document.querySelector('.title-input')
+        var importBtn = document.querySelector('.import')
+
+        importBtn.onclick = function() {
+          var url = document.querySelector('.url').value
+          if (!url || url.indexOf('json') === -1) {
+            return
+          }
+          fetch(url)
+            .then(response => {
+              if (response.status !== 200) {
+                alert('没找到该路径')
+              } else {
+                return response.json()
+              }
+            })
+            .then(response => {
+              titleInput.value = response.title
+              values = response.values
+
+              resetLayout()
+              resetOption()
+            })
+        }
 
         titleInput.value = localStorage.getItem('title') || 'liurongqing'
 
-        inputs.forEach(function(v, index) {
-          v.value = values[index].value
-          v.parentNode.querySelector('label').innerText = values[index].value
-          v.onchange = function(e) {
-            v.parentNode.querySelector('label').innerText = e.target.value
-            values[index].value = +e.target.value
-            resetOption()
-          }
-        })
-        textareas.forEach(function(v, index) {
-          v.innerText = values[index].text
-          v.onchange = function(e) {
-            values[index].text = e.target.value
-            resetOption()
-          }
-        })
+        resetLayout()
+        function resetLayout() {
+          inputs.forEach(function(v, index) {
+            v.value = values[index].value
+            v.parentNode.querySelector('label').innerText = values[index].value
+            v.onchange = function(e) {
+              v.parentNode.querySelector('label').innerText = e.target.value
+              values[index].value = +e.target.value
+              resetOption()
+            }
+          })
+          textareas.forEach(function(v, index) {
+            v.value = values[index].text
+            v.onchange = function(e) {
+              values[index].text = e.target.value
+              resetOption()
+            }
+          })
+        }
 
         titleInput.onchange = function() {
           resetOption()
@@ -218,7 +256,7 @@
             radar: [
               {
                 name: {
-                  color: '#222222',
+                  color: '#222222'
                   // fontWeight: 'bold',
                 },
                 axisLine: {
@@ -241,7 +279,8 @@
               },
               {
                 name: {
-                  color: '#333333'
+                  color: '#333333',
+                  lineHeight: 18
                 },
                 indicator: values.map(function(v) {
                   return { name: v.text }
