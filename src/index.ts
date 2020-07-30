@@ -9,12 +9,24 @@ const config: any = {
   type: Phaser.AUTO,
   backgroundColor: 0x000000,
   scale: {
-    mode: Phaser.Scale.FIT,
+    mode: Phaser.Scale.NONE,
     autoCenter: Phaser.Scale.CENTER_BOTH,
     parent: 'app',
-    width: 750,
-    height: 1334
+    width: 800,
+    height: 600
   },
+  physics: {
+    default: 'arcade',
+    arcade: {
+      gravity: { y: 200 }
+    }
+  },
+  // audio: {
+  //   noAudio: true
+  // },
+  // banner: {
+  //   hidePhaser: true
+  // },
   scene
 }
 
