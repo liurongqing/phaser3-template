@@ -3,6 +3,8 @@
  * @param fn 执行的函数
  * @param wait 等待时间
  * @param immediate 立即执行
+ * 例子：
+ * const func = debounce(doFun, 100)
  */
 export const debounce = (fn, wait = 50, immediate) => {
   let timer = null
