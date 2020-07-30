@@ -1,1 +1,4 @@
-// game.device 获取设备相关信息
+export { Enums } from './enums'
+export { binaryStatus } from './binaryStatus'
+export { debounce } from './debounce'
+export { throttle } from './throttle'
