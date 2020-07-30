@@ -12,6 +12,7 @@ export default class MainScene extends Phaser.Scene {
     // this.load.setBaseURL(BASE_URL)
     // this.load.setPath(PATH_URL)
     // this.load.image('bg', 'images/bg.jpg')
+    // console.log('git submodule test')
   }
 
   create() {
