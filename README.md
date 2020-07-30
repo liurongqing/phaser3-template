@@ -108,9 +108,9 @@ tsconfig.json // 为了让 VSCode 识别 Typescript 语法
         ```
     1. 递归克隆整个项目(子模块是最新的)
 
-    ```bash
-    git clone https://github.com/parent_xx.git --recursive
-    ```
+        ```bash
+        git clone https://github.com/parent_xx.git --recursive
+        ```
 
 1. 删除子模块
 
@@ -140,7 +140,7 @@ tsconfig.json // 为了让 VSCode 识别 Typescript 语法
 
 1. 去除 `git status` 对子模块无更改的提示信息
 
-在 .gitmodules 文件最后添加一行： ignore = dirty
+    在 .gitmodules 文件最后添加一行： ignore = dirty
 
 ## 问题反馈
 
