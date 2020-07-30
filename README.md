@@ -63,17 +63,84 @@ tsconfig.json // 为了让 VSCode 识别 Typescript 语法
    yarn global add -D http-server
    ```
 
-2. 启动服务
+1. 启动服务
 
    ```bash
    http-server ./dist
    ```
 
-3. 访问
+1. 访问
 
    ```bash
    http://127.0.0.1:8080
    ```
+
+
+## Git submodule 使用
+
+1. 添加子模块
+
+    ```bash
+    git submodule add https://github.com/xx.git dir_name # dir_name不写，默认为仓库名
+    ```
+
+1. 更新子模块
+
+    ```bash
+    git submodule update
+    git submodule update --remote # 远程项目最新版本
+    ```
+
+1. 查看子模块
+
+    ```bash
+    git submodule
+    ```
+
+1. 克隆包含子模块的项目
+
+    1. 克隆父项目，再更新子模块
+
+        ```bash
+        git clone https://github.com/parent_xx.git # 克隆父项目
+        git submodule init # 初始化子模块
+        git submodule update # 更新子模块
+        ```
+    1. 递归克隆整个项目(子模块是最新的)
+
+    ```bash
+    git clone https://github.com/parent_xx.git --recursive
+    ```
+
+1. 删除子模块
+
+    1. 删除子模块文件夹
+    
+        ```bash
+        git rm --cached dir_name
+        rm -rf dir_name
+        ```
+    1. 删除 `.gitmodules` 文件相关子模块信息
+
+        ```bash
+        [submodule "dir_name"]
+            url = https://**.git
+        ```
+    1. 删除 `.git/config` 中的相关子模块信息
+
+        ```bash
+        [submodule "dir_name"]
+            url = https://**.git
+        ```
+    1. 删除 `.git` 文件夹中的相关子模块文件
+
+        ```bash
+        rm -rf .git/modules/dir_name
+        ```
+
+1. 去除 `git status` 对子模块无更改的提示信息
+
+在 .gitmodules 文件最后添加一行： ignore = dirty
 
 ## 问题反馈
 
