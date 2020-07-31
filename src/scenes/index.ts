@@ -1,1 +1,1 @@
-export { default as Main } from './Main'
+export { MainScene } from './Main'

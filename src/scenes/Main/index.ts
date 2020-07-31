@@ -1,5 +1,5 @@
 import { BASE_URL, PATH_URL } from '@/const'
-export default class MainScene extends Phaser.Scene {
+export class MainScene extends Phaser.Scene {
   constructor() {
     super('MainScene')
   }
