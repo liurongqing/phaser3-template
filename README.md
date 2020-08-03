@@ -47,7 +47,7 @@ tsconfig.json // 为了让 VSCode 识别 Typescript 语法
 
    > 根据需要模块进行删减
 
-2. 运行自动生成 `phaser.js` 至 `public` 目录下
+1. 运行自动生成 `phaser.js` 至 `public` 目录下
 
    ```bash
    yarn phaser
@@ -138,7 +138,7 @@ tsconfig.json // 为了让 VSCode 识别 Typescript 语法
         rm -rf .git/modules/dir_name
         ```
 
-1. 去除 `git status` 对子模块无更改的提示信息
+1. 忽略 `git status` 对子模块无更改的提示信息
 
     在 .gitmodules 文件最后添加一行： ignore = dirty
 
