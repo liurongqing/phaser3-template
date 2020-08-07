@@ -12,7 +12,7 @@
 
 ## 项目简介
 
-本项目使用 `Typescript` + `Webpack` 构建，支持自定义 Phaser 库至 `public/phaser.js` 中，能够快速编译用户代码。
+本项目使用 `Typescript` + `Webpack` + `Phaser3` 构建，支持自定义 Phaser 库至 `public/phaser.js` 中，能够快速编译用户代码。
 
 ## 快速开始
 
