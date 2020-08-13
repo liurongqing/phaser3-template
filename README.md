@@ -14,6 +14,10 @@
 
 本项目使用 `Typescript` + `Webpack` + `Phaser3` 构建，支持自定义 Phaser 库至 `public/phaser.js` 中，能够快速编译用户代码。
 
+## 规范
+
+- 目录文件命名为小驼峰法
+
 ## 快速开始
 
 ```bash
@@ -75,6 +79,12 @@ tsconfig.json // 为了让 VSCode 识别 Typescript 语法
    http://127.0.0.1:8080
    ```
 
+## 更新 npm 包
+
+```bash
+yarn upgrade-interactive --lastest # 空格: 选择  i: 反选  a: 全选 会更新 yarn.lock 文件，不会更新package.json文件
+yarn upgrade phaser@lastest # 更新到最新，并更新 package.json 文件
+```
 
 ## Git submodule 使用
 
@@ -141,6 +151,19 @@ tsconfig.json // 为了让 VSCode 识别 Typescript 语法
 1. 忽略 `git status` 对子模块无更改的提示信息
 
     在 .gitmodules 文件最后添加一行： ignore = dirty
+
+
+## 错误
+
+1. [.WebGL-0x7fb093019600]RENDER WARNING: there is no texture bound to the unit 5
+
+    > 解答： 使用 scene.start('mainScene') 时， phaser3.24.1 以上版本有这个提示 
+
+1. 开发中不能自动更新
+
+    > 解答：git 忽略了目录文件大小写，导致没监听到
+
+
 
 ## 问题反馈
 
