@@ -98,6 +98,7 @@ __webpack_require__.r(scenes_namespaceObject);
 __webpack_require__.d(scenes_namespaceObject, "MainScene", function() { return MainScene; });
 
 // CONCATENATED MODULE: ./src/scenes/Main/index.ts
+// import { BASE_URL, PATH_URL } from '@/const'
 class MainScene extends Phaser.Scene {
   constructor() {
     super('MainScene');
@@ -114,6 +115,15 @@ class MainScene extends Phaser.Scene {
   }
 
   create() {
+    let Direction;
+
+    (function (Direction) {
+      Direction[Direction["Up"] = 1] = "Up";
+      Direction[Direction["Down"] = 2] = "Down";
+      Direction[Direction["Left"] = 3] = "Left";
+      Direction[Direction["Right"] = 4] = "Right";
+    })(Direction || (Direction = {}));
+
     this.add.image(400, 300, 'sky');
     const particles = this.add.particles('red');
     const emitter = particles.createEmitter({
@@ -128,7 +138,9 @@ class MainScene extends Phaser.Scene {
     logo.setVelocity(100, 200);
     logo.setBounce(1, 1);
     logo.setCollideWorldBounds(true);
-    emitter.startFollow(logo); // this.add.image(0, 0, 'bg').setOrigin(0, 0)
+    emitter.startFollow(logo); // const a: any = {}
+    // console.log(a?.b?.c)
+    // this.add.image(0, 0, 'bg').setOrigin(0, 0)
   }
 
 }
@@ -172,4 +184,3 @@ window.game = new Phaser.Game(config);
 
 /***/ })
 /******/ ]);
-//# sourceMappingURL=game.js.map

@@ -1,12 +1,23 @@
 {
   "compilerOptions": {
     "baseUrl": "./",
-    "target": "es5",
-    "lib": ["es5", "es6", "es7", "dom"],
-    "typeRoots": ["types", "./node_modules/phaser/types"],
-    "types": ["Phaser"],
+    "lib": [
+      "es5",
+      "es6",
+      "es7",
+      "dom"
+    ],
+    "typeRoots": [
+      "types",
+      "./node_modules/phaser/types"
+    ],
+    "types": [
+      "Phaser"
+    ],
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": [
+        "src/*"
+      ]
     }
   }
 }
