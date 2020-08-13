@@ -17,12 +17,6 @@ export class MainScene extends Phaser.Scene {
 
   create() {
 
-    enum Direction {
-      Up = 1,
-      Down,
-      Left,
-      Right
-    }
     this.add.image(400, 300, 'sky');
     const particles = this.add.particles('red');
     const emitter = particles.createEmitter({
@@ -37,8 +31,6 @@ export class MainScene extends Phaser.Scene {
 
     emitter.startFollow(logo);
 
-    // const a: any = {}
-    // console.log(a?.b?.c)
     // this.add.image(0, 0, 'bg').setOrigin(0, 0)
   }
 }

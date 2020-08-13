@@ -98,63 +98,85 @@ __webpack_require__.r(scenes_namespaceObject);
 __webpack_require__.d(scenes_namespaceObject, "MainScene", function() { return MainScene; });
 
 // CONCATENATED MODULE: ./src/scenes/Main/index.ts
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
 // import { BASE_URL, PATH_URL } from '@/const'
-class MainScene extends Phaser.Scene {
-  constructor() {
-    super('MainScene');
+var MainScene = /*#__PURE__*/function (_Phaser$Scene) {
+  _inherits(MainScene, _Phaser$Scene);
+
+  var _super = _createSuper(MainScene);
+
+  function MainScene() {
+    _classCallCheck(this, MainScene);
+
+    return _super.call(this, 'MainScene');
   }
 
-  preload() {
-    this.load.setBaseURL('https://labs.phaser.io');
-    this.load.image('sky', 'assets/skies/space3.png');
-    this.load.image('logo', 'assets/sprites/phaser3-logo.png');
-    this.load.image('red', 'assets/particles/red.png'); // this.load.setBaseURL(BASE_URL)
-    // this.load.setPath(PATH_URL)
-    // this.load.image('bg', 'images/bg.jpg')
-    // console.log('git submodule test')
-  }
+  _createClass(MainScene, [{
+    key: "preload",
+    value: function preload() {
+      this.load.setBaseURL('https://labs.phaser.io');
+      this.load.image('sky', 'assets/skies/space3.png');
+      this.load.image('logo', 'assets/sprites/phaser3-logo.png');
+      this.load.image('red', 'assets/particles/red.png'); // this.load.setBaseURL(BASE_URL)
+      // this.load.setPath(PATH_URL)
+      // this.load.image('bg', 'images/bg.jpg')
+      // console.log('git submodule test')
+    }
+  }, {
+    key: "create",
+    value: function create() {
+      this.add.image(400, 300, 'sky');
+      var particles = this.add.particles('red');
+      var emitter = particles.createEmitter({
+        speed: 100,
+        scale: {
+          start: 1,
+          end: 0
+        },
+        blendMode: 'ADD'
+      });
+      var logo = this.physics.add.image(400, 100, 'logo');
+      logo.setVelocity(100, 200);
+      logo.setBounce(1, 1);
+      logo.setCollideWorldBounds(true);
+      emitter.startFollow(logo); // this.add.image(0, 0, 'bg').setOrigin(0, 0)
+    }
+  }]);
 
-  create() {
-    let Direction;
-
-    (function (Direction) {
-      Direction[Direction["Up"] = 1] = "Up";
-      Direction[Direction["Down"] = 2] = "Down";
-      Direction[Direction["Left"] = 3] = "Left";
-      Direction[Direction["Right"] = 4] = "Right";
-    })(Direction || (Direction = {}));
-
-    this.add.image(400, 300, 'sky');
-    const particles = this.add.particles('red');
-    const emitter = particles.createEmitter({
-      speed: 100,
-      scale: {
-        start: 1,
-        end: 0
-      },
-      blendMode: 'ADD'
-    });
-    const logo = this.physics.add.image(400, 100, 'logo');
-    logo.setVelocity(100, 200);
-    logo.setBounce(1, 1);
-    logo.setCollideWorldBounds(true);
-    emitter.startFollow(logo); // const a: any = {}
-    // console.log(a?.b?.c)
-    // this.add.image(0, 0, 'bg').setOrigin(0, 0)
-  }
-
-}
+  return MainScene;
+}(Phaser.Scene);
 // CONCATENATED MODULE: ./src/scenes/index.ts
 
 // CONCATENATED MODULE: ./src/home.ts
 
-const scene = [];
+var scene = [];
 
-for (let i in scenes_namespaceObject) {
+for (var i in scenes_namespaceObject) {
   scene.push(scenes_namespaceObject[i]);
 }
 
-const config = {
+var config = {
   type: Phaser.AUTO,
   backgroundColor: 0x000000,
   scale: {
@@ -178,7 +200,7 @@ const config = {
   // banner: {
   //   hidePhaser: true
   // },
-  scene
+  scene: scene
 };
 window.game = new Phaser.Game(config);
 
