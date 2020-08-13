@@ -17,18 +17,18 @@ module.exports = merge(common, {
   ],
   optimization: {
     minimizer: [
-        // new UglifyJSPlugin({
-        //   parallel: true,
-        //   sourceMap: false,
-        //   uglifyOptions: {
-        //     compress: true,
-        //     ie8: false,
-        //     ecma: 5,
-        //     output: { comments: false },
-        //     warnings: false
-        //   },
-        //   warningsFilter: () => false
-        // })
+      new UglifyJSPlugin({
+        parallel: true,
+        sourceMap: false,
+        uglifyOptions: {
+          compress: true,
+          ie8: false,
+          ecma: 5,
+          output: { comments: false },
+          warnings: false
+        },
+        warningsFilter: () => false
+      })
     ]
   },
 })
