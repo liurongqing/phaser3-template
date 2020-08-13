@@ -6,7 +6,7 @@
 - 可适配手机端、iPad 端、PC 端
 - 性能流畅度极佳
 
-这个库为游戏基础模板
+这个库为游戏基础模板, [在线演示](https://liurongqing.github.io/mao-game-webpack/)
 
 ---
 
