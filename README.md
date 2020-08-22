@@ -170,8 +170,3 @@ yarn upgrade phaser@lastest # 更新到最新，并更新 package.json 文件
 若您有任何问题或建议，请不吝与我联系。
 
 - 微信: 16620882081
-
-
-## TODO
-
-添加规范
