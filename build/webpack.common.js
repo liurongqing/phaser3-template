@@ -1,5 +1,4 @@
 const path = require('path')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { resolve } = path
 const config = {
   entry: './src/main.ts',
@@ -10,12 +9,6 @@ const config = {
   module: {
     rules: [{ test: /\.ts$/, use: 'babel-loader' }]
   },
-  plugins: [
-    new HtmlWebpackPlugin({
-      filename: 'index.html',
-      template: './public/index.html'
-    })
-  ],
   resolve: {
     extensions: ['.ts', '.js'],
     alias: {
