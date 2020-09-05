@@ -6,7 +6,7 @@ const config = {
   entry: './src/main.ts',
   output: {
     path: resolve('./docs'),
-    filename: '[name].[chunkhash]].js'
+    filename: '[name].[chunkhash].js'
   },
   module: {
     rules: [{
