@@ -1,8 +1,10 @@
 const { merge } = require('webpack-merge')
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
+// const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 const CopyPlugin = require('copy-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const common = require('./webpack.common.js')
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+
 
 module.exports = merge(common, {
   mode: 'production',
@@ -13,22 +15,8 @@ module.exports = merge(common, {
         from: 'public',
         to: './'
       }]
-    })
+    }),
+    // new BundleAnalyzerPlugin()
   ],
-  optimization: {
-    minimizer: [
-      new UglifyJSPlugin({
-        parallel: true,
-        sourceMap: false,
-        uglifyOptions: {
-          compress: true,
-          ie8: false,
-          ecma: 5,
-          output: { comments: false },
-          warnings: false
-        },
-        warningsFilter: () => false
-      })
-    ]
-  },
+
 })

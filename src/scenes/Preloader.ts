@@ -1,4 +1,4 @@
-import { Keys } from "~/consts/index";
+import { Keys } from '~/consts/index'
 
 export default class Preloader extends Phaser.Scene {
   private cursors!: Phaser.Types.Input.Keyboard.CursorKeys

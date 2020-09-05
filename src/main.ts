@@ -1,3 +1,5 @@
+import 'phaser'
+
 import scene from '~/scenes/index'
 
 const config: Phaser.Types.Core.GameConfig = {

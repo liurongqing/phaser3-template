@@ -1,0 +1,8 @@
+{
+  "importStringConfiguration": {
+    "hasSemicolon": false
+  },
+  "generalConfiguration": {
+    "sortOnBeforeSave": true
+  }
+}
