@@ -1,11 +1,12 @@
 const path = require('path')
 const { resolve } = path
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 const config = {
   entry: './src/main.ts',
   output: {
     path: resolve('./docs'),
-    filename: '[name].js'
+    filename: '[name].[chunkhash]].js'
   },
   module: {
     rules: [{
@@ -29,7 +30,12 @@ const config = {
       }
     }
   },
-
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: './public/index.html',
+      filename: 'index.html'
+    })
+  ],
   resolve: {
     extensions: ['.ts', '.js'],
     alias: {

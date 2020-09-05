@@ -1,7 +1,6 @@
 import { Keys } from '~/consts/index'
 
 export default class Game extends Phaser.Scene {
-  private cursors!: Phaser.Types.Input.Keyboard.CursorKeys
   constructor() {
     super(Keys.GameScene)
   }
