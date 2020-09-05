@@ -1,8 +1,8 @@
-import { Keys } from '~/consts/index'
+import { SceneKeys } from '~/consts/index'
 
 export default class Game extends Phaser.Scene {
   constructor() {
-    super(Keys.GameScene)
+    super(SceneKeys.GAME)
   }
   preload() { }
   create() {

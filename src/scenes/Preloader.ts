@@ -1,15 +1,14 @@
-import { Keys } from '~/consts/index'
+import { SceneKeys } from '~/consts/index'
 
 export default class Preloader extends Phaser.Scene {
-  private cursors!: Phaser.Types.Input.Keyboard.CursorKeys
   constructor() {
-    super(Keys.PreloadScene)
+    super(SceneKeys.PRELOAD)
   }
   preload() {
     this.load.image('bg', 'assets/images/bg.jpg')
   }
   create() {
-    this.scene.start(Keys.GameScene)
+    this.scene.start(SceneKeys.GAME)
   }
   update() { }
 }
