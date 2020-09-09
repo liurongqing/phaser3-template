@@ -6,10 +6,7 @@
   "author": "liurongqing <phpgege@gmail.com>",
   "scripts": {
     "start": "webpack-dev-server --open --config build/webpack.dev.js",
-    "build": "webpack --config build/webpack.prod.js",
-    "phaser": "export NODE_ENV=production && yarn phaser-core",
-    "phaser:dev": "yarn phaser-core -w",
-    "phaser-core": "webpack --config build/webpack.phaser.js"
+    "build": "webpack --config build/webpack.prod.js"
   },
   "license": "MIT",
   "dependencies": {
