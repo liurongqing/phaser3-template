@@ -7,6 +7,21 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPl
 
 module.exports = merge(common, {
   mode: 'production',
+  optimization: {
+    splitChunks: {
+      chunks: 'all',
+      cacheGroups: {
+        defaultVendors: {
+          name: 'libs'
+        },
+        phaser: {
+          test: /phaser\.js/,
+          name: 'phaser',
+          priority: 1
+        }
+      }
+    }
+  },
   plugins: [
     new CleanWebpackPlugin(),
     new CopyPlugin({
