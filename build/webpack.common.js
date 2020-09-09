@@ -15,21 +15,6 @@ const config = {
       exclude: /node_modules/,
     }]
   },
-  optimization: {
-    splitChunks: {
-      chunks: 'all',
-      cacheGroups: {
-        defaultVendors: {
-          name: 'libs'
-        },
-        phaser: {
-          test: /phaser\.js/,
-          name: 'phaser',
-          priority: 1
-        }
-      }
-    }
-  },
   plugins: [
     new HtmlWebpackPlugin({
       template: './public/index.html',
