@@ -1,12 +1,8 @@
-const { merge } = require('webpack-merge')
-const CopyPlugin = require('copy-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
-const common = require('./webpack.common.js')
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const CopyPlugin = require('copy-webpack-plugin')
+// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
-
-module.exports = merge(common, {
-  mode: 'production',
+module.exports = {
   optimization: {
     splitChunks: {
       chunks: 'all',
@@ -31,6 +27,5 @@ module.exports = merge(common, {
       }]
     }),
     // new BundleAnalyzerPlugin()
-  ],
-
-})
+  ]
+}

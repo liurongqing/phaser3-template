@@ -5,8 +5,8 @@
   "repository": "git@github.com:liurongqing/mao-game-webpack.git",
   "author": "liurongqing <phpgege@gmail.com>",
   "scripts": {
-    "start": "webpack-dev-server --open --config build/webpack.dev.js",
-    "build": "webpack --config build/webpack.prod.js"
+    "start": "webpack-dev-server --mode=development --config build/webpack.config.js",
+    "build": "webpack --mode=production --config build/webpack.config.js"
   },
   "license": "MIT",
   "dependencies": {
